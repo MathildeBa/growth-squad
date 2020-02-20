@@ -1965,7 +1965,7 @@ const allCountries = ({
     lineNumber: 13
   },
   __self: undefined
-}, "This is the Index"), __jsx("ul", {
+}, "All countries of the World"), __jsx("ul", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 14

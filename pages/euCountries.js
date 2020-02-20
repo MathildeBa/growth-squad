@@ -1,8 +1,5 @@
 import fetch from "isomorphic-unfetch";
 
-const isUE = (country) =>{
-    return country.name
-}
 
 const euCountries = ({countries}) => {
     return (

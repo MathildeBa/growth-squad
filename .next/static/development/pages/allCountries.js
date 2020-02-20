@@ -9815,7 +9815,7 @@ var allCountries = function allCountries(_ref2) {
       lineNumber: 13
     },
     __self: this
-  }, "This is the Index"), __jsx("ul", {
+  }, "All countries of the World"), __jsx("ul", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14

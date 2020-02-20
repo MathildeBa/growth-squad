@@ -10,7 +10,7 @@ const Country = ({ name , capital , alpha2Code}) => {
 const allCountries = ({countries}) => (
     <LayoutApp>
         <div>
-            <h1>This is the Index</h1>
+            <h1>All countries of the World</h1>
             <ul>
                 {
                     countries.map(country=> 
