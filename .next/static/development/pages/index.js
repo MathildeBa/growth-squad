@@ -9819,18 +9819,15 @@ var Index = function Index(_ref2) {
       lineNumber: 14
     },
     __self: this
-  }, //everyCountry is element(s) in the countries array we will aske to change to :
-  countries.map(function (everyCountry) {
-    return (//here Country is the const Country on the top. Every elements will be changed by Country.name
-      __jsx(Country, {
-        name: Country.name,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 19
-        },
-        __self: this
-      })
-    );
+  }, countries.map(function (country) {
+    return __jsx(Country, {
+      name: country.name,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    });
   }))));
 };
 
@@ -9850,13 +9847,12 @@ Index.getInitialProps = function _callee() {
 
         case 5:
           countries = _context.sent;
-          console.log('showing the data: ', countries);
           return _context.abrupt("return", {
             //countries is all the informations you will find in the API
             countries: countries
           });
 
-        case 8:
+        case 7:
         case "end":
           return _context.stop();
       }

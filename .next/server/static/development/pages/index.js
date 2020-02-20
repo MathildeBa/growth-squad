@@ -1969,13 +1969,11 @@ const Index = ({
     lineNumber: 14
   },
   __self: undefined
-}, //everyCountry is element(s) in the countries array we will aske to change to :
-countries.map(everyCountry => //here Country is the const Country on the top. Every elements will be changed by Country.name
-__jsx(Country, {
-  name: Country.name,
+}, countries.map(country => __jsx(Country, {
+  name: country.name,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 19
+    lineNumber: 17
   },
   __self: undefined
 })))));
@@ -1985,7 +1983,6 @@ Index.getInitialProps = async function () {
   const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://restcountries.eu/rest/v2/all?fields=name'); // await to map the json
 
   const countries = await res.json();
-  console.log('showing the data: ', countries);
   return {
     //countries is all the informations you will find in the API
     countries
