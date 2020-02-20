@@ -1933,7 +1933,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const Country = ({
   name,
-  capital
+  capital,
+  alpha2Code
 }) => {
   return __jsx("li", {
     __source: {
@@ -1941,7 +1942,7 @@ const Country = ({
       lineNumber: 6
     },
     __self: undefined
-  }, name, " , ", capital);
+  }, name, " , ", capital, " , ", alpha2Code);
 };
 
 const Index = ({
@@ -1973,6 +1974,7 @@ const Index = ({
 }, countries.map(country => __jsx(Country, {
   name: country.name,
   capital: country.capital,
+  alpha2Code: country.alpha2Code,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 17
@@ -1982,7 +1984,7 @@ const Index = ({
 
 Index.getInitialProps = async function () {
   //fetching of the API
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://restcountries.eu/rest/v2/all?fields=name;capital'); // await to map the json
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://restcountries.eu/rest/v2/all?fields=name;capital;alpha2Code'); // await to map the json
 
   const countries = await res.json();
   console.log('showing the data: ', countries);

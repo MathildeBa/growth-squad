@@ -1,9 +1,9 @@
 import LayoutApp from "../components/LayoutApp";
 import fetch from "isomorphic-unfetch";
 
-const Country = ({ name , capital}) => {
+const Country = ({ name , capital , alpha2Code}) => {
 	return (
-        <li>{name} , { capital }</li>
+    <li>{name} , { capital } , { alpha2Code }</li>
     )
 }
 
@@ -14,7 +14,7 @@ const Index = ({countries}) => (
             <ul>
                 {
                     countries.map(country=> 
-                        <Country name={country.name} capital={country.capital}/>
+                        <Country name={country.name} capital={country.capital} alpha2Code={country.alpha2Code}/>
                     )
                 }
             </ul>
@@ -24,7 +24,7 @@ const Index = ({countries}) => (
 
 Index.getInitialProps = async function () {
     //fetching of the API
-    const res = await fetch('https://restcountries.eu/rest/v2/all?fields=name;capital');
+    const res = await fetch('https://restcountries.eu/rest/v2/all?fields=name;capital;alpha2Code');
     // await to map the json
     const countries = await res.json();
 

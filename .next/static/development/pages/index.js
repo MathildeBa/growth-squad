@@ -9784,14 +9784,15 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 var Country = function Country(_ref) {
   var name = _ref.name,
-      capital = _ref.capital;
+      capital = _ref.capital,
+      alpha2Code = _ref.alpha2Code;
   return __jsx("li", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
     },
     __self: this
-  }, name, " , ", capital);
+  }, name, " , ", capital, " , ", alpha2Code);
 };
 
 var Index = function Index(_ref2) {
@@ -9824,6 +9825,7 @@ var Index = function Index(_ref2) {
     return __jsx(Country, {
       name: country.name,
       capital: country.capital,
+      alpha2Code: country.alpha2Code,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 17
@@ -9840,7 +9842,7 @@ Index.getInitialProps = function _callee() {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('https://restcountries.eu/rest/v2/all?fields=name;capital'));
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('https://restcountries.eu/rest/v2/all?fields=name;capital;alpha2Code'));
 
         case 2:
           res = _context.sent;
