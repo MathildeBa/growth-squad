@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1911,10 +1911,10 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 /***/ }),
 
-/***/ "./pages/index.js":
-/*!************************!*\
-  !*** ./pages/index.js ***!
-  \************************/
+/***/ "./pages/allCountries.js":
+/*!*******************************!*\
+  !*** ./pages/allCountries.js ***!
+  \*******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1923,45 +1923,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_LayoutApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/LayoutApp */ "./components/LayoutApp.js");
-var _jsxFileName = "/home/mathilde/Desktop/growth-squad/pages/index.js";
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/home/mathilde/Desktop/growth-squad/pages/allCountries.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const Index = ({
+
+const Country = ({
+  name,
+  capital,
+  alpha2Code
+}) => {
+  return __jsx("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: undefined
+  }, name, " , ", capital, " , ", alpha2Code);
+};
+
+const allCountries = ({
   countries
 }) => __jsx(_components_LayoutApp__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 4
+    lineNumber: 11
   },
   __self: undefined
 }, __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 12
   },
   __self: undefined
 }, __jsx("h1", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 13
   },
   __self: undefined
-}, "Hello JAIMY's Wotrld")));
+}, "This is the Index"), __jsx("ul", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 14
+  },
+  __self: undefined
+}, countries.map(country => __jsx(Country, {
+  name: country.name,
+  capital: country.capital,
+  alpha2Code: country.alpha2Code,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 17
+  },
+  __self: undefined
+})))));
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+allCountries.getInitialProps = async function () {
+  //fetching of the API
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://restcountries.eu/rest/v2/all?fields=name;capital;alpha2Code'); // await to map the json
+
+  const countries = await res.json();
+  console.log('showing the data: ', countries);
+  return {
+    //countries is all the informations you will find in the API
+    countries
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (allCountries);
 
 /***/ }),
 
-/***/ 4:
-/*!******************************!*\
-  !*** multi ./pages/index.js ***!
-  \******************************/
+/***/ 3:
+/*!*************************************!*\
+  !*** multi ./pages/allCountries.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mathilde/Desktop/growth-squad/pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /home/mathilde/Desktop/growth-squad/pages/allCountries.js */"./pages/allCountries.js");
 
 
 /***/ }),
@@ -2021,6 +2065,17 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
+/***/ "isomorphic-unfetch":
+/*!*************************************!*\
+  !*** external "isomorphic-unfetch" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
+
+/***/ }),
+
 /***/ "prop-types":
 /*!*****************************!*\
   !*** external "prop-types" ***!
@@ -2077,4 +2132,4 @@ module.exports = require("url");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=allCountries.js.map
