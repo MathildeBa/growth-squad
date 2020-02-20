@@ -1932,7 +1932,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const Country = ({
-  name
+  name,
+  capital
 }) => {
   return __jsx("li", {
     __source: {
@@ -1940,7 +1941,7 @@ const Country = ({
       lineNumber: 6
     },
     __self: undefined
-  }, name);
+  }, name, " , ", capital);
 };
 
 const Index = ({
@@ -1971,6 +1972,7 @@ const Index = ({
   __self: undefined
 }, countries.map(country => __jsx(Country, {
   name: country.name,
+  capital: country.capital,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 17
@@ -1980,9 +1982,10 @@ const Index = ({
 
 Index.getInitialProps = async function () {
   //fetching of the API
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://restcountries.eu/rest/v2/all?fields=name'); // await to map the json
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://restcountries.eu/rest/v2/all?fields=name;capital'); // await to map the json
 
   const countries = await res.json();
+  console.log('showing the data: ', countries);
   return {
     //countries is all the informations you will find in the API
     countries
