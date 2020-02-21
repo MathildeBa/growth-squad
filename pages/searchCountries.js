@@ -9,7 +9,7 @@ const Country = ({ name , capital , alpha2Code}) => {
     )
 }
 
-const allCountries = ({countries}) => (
+const searchCountries = ({countries}) => (
     <LayoutApp>
         <div>
             <h1>All countries of the World</h1>
@@ -25,7 +25,7 @@ const allCountries = ({countries}) => (
     </LayoutApp>
 );
 
-allCountries.getInitialProps = async function () {
+searchCountries.getInitialProps = async function () {
     //fetching of the API
     const res = await fetch('https://restcountries.eu/rest/v2/all?fields=name;capital;alpha2Code');
     // await to map the json
@@ -39,5 +39,5 @@ allCountries.getInitialProps = async function () {
     }; 
 };
 
-export default allCountries;
+export default searchCountries;
 
